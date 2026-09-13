@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -19,14 +20,18 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <span className="flex h-10 w-10 items-center justify-center border border-navy text-sm font-semibold tracking-wide text-navy">
-            AI
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-serif-display text-lg font-semibold text-navy">CEXIA</span>
-            <span className="text-[11px] uppercase tracking-[0.14em] text-ink-soft">
-              Centrul de Excelență la Inteligență Artificială
-            </span>
+          <Image
+            src="/cexia-wordmark.png"
+            alt="CEXIA"
+            width={1803}
+            height={236}
+            priority
+            className="h-7 w-auto"
+          />
+          <span className="hidden border-l border-line pl-3 text-[11px] uppercase leading-tight tracking-[0.1em] text-ink-soft sm:block">
+            Centrul de Excelență
+            <br />
+            la Inteligență Artificială
           </span>
         </Link>
 

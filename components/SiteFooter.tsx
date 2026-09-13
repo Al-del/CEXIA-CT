@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function SiteFooter() {
@@ -5,8 +6,14 @@ export function SiteFooter() {
     <footer id="contact" className="border-t border-line bg-navy-deep text-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3">
         <div>
-          <p className="font-serif-display text-lg font-semibold">CEXIA</p>
-          <p className="mt-2 max-w-xs text-sm text-paper/70">
+          <Image
+            src="/cexia-wordmark-light.png"
+            alt="CEXIA"
+            width={1803}
+            height={236}
+            className="h-6 w-auto"
+          />
+          <p className="mt-3 max-w-xs text-sm text-paper/70">
             Centrul de Excelență la Inteligență Artificială — Constanța.
             Pregătim elevi pentru olimpiadele naționale și internaționale de
             inteligență artificială, de la fundamentele Python până la
