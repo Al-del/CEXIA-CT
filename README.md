@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CEXIA — site
 
-## Getting Started
+Site Next.js pentru Centrul de Excelență la Inteligență Artificială
+(Constanța): pagina de prezentare, programa completă pentru grupa
+Începători (an școlar 2026–2027) și formularul de înscriere, care salvează
+datele într-un Google Sheet.
 
-First, run the development server:
+## Dezvoltare locală
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deschide [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Conectarea formularului la Google Sheets
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vezi [`GOOGLE_SHEETS_SETUP.md`](./GOOGLE_SHEETS_SETUP.md) pentru pașii
+completi. Pe scurt: formularul trimite datele către `/api/inscriere`, care
+le validează și le retrimite către un Google Apps Script publicat ca web
+app, care adaugă un rând nou într-un Google Sheet. URL-ul scriptului se
+configurează prin variabila de mediu `GOOGLE_SHEETS_WEBHOOK_URL` (vezi
+`.env.local.example`).
 
-## Learn More
+Fără această variabilă configurată, formularul afișează o eroare clară în
+loc să piardă datele în tăcere.
 
-To learn more about Next.js, take a look at the following resources:
+## Structură
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `app/page.tsx` — pagina principală (misiune, olimpiade, etape, competențe)
+- `app/programa/page.tsx` — programa completă, structurată din documentul
+  oficial (`lib/curriculum.ts`)
+- `app/inscriere/page.tsx` + `components/RegistrationForm.tsx` — formularul
+  de înscriere
+- `app/api/inscriere/route.ts` — validare (Zod) și trimitere către Google
+  Sheets
+- `components/SiteHeader.tsx`, `components/SiteFooter.tsx` — navigare comună
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Proiectul este un site Next.js standard — se poate publica pe Vercel sau pe
+orice platformă compatibilă cu Next.js. Nu uita să setezi
+`GOOGLE_SHEETS_WEBHOOK_URL` în variabilele de mediu ale platformei alese.
