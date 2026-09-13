@@ -49,8 +49,16 @@ export function RegistrationForm() {
 
       if (!res.ok) {
         const body = await res.json().catch(() => null);
+        const fieldErrors = body?.issues?.fieldErrors as
+          | Record<string, string[]>
+          | undefined;
+        const firstFieldError = fieldErrors
+          ? Object.values(fieldErrors).flat()[0]
+          : undefined;
+
         setErrorMessage(
-          body?.error ??
+          firstFieldError ??
+            body?.error ??
             "Nu am putut trimite formularul. Încearcă din nou sau scrie-ne pe email.",
         );
         setStatus("error");
@@ -90,7 +98,7 @@ export function RegistrationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-8">
       <fieldset className="space-y-5">
         <legend className="text-xs font-medium uppercase tracking-[0.14em] text-gold">
           Date despre elev
