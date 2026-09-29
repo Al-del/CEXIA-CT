@@ -117,12 +117,11 @@ export function RegistrationForm() {
           id="online-notice-title"
           className="font-serif-display mt-2 text-xl font-semibold text-navy"
         >
-          Participare doar online
+          Înscrierile fizice s-au încheiat
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-          Din cauza unor probleme logistice, momentan putem primi participanți
-          doar în format online. Ședințele se vor desfășura pe serverul nostru
-          de Discord.
+          Înscrierile pentru participarea fizică s-au încheiat. Dacă vrei să
+          participi online, intră pe serverul nostru de Discord.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
@@ -131,14 +130,14 @@ export function RegistrationForm() {
             rel="noopener noreferrer"
             className="border border-navy bg-navy px-5 py-2.5 text-center text-sm font-medium text-paper transition-colors hover:bg-navy-soft"
           >
-            Invitație Discord
+            Intră pe Discord
           </a>
           <button
             type="button"
             onClick={() => noticeRef.current?.close()}
             className="border border-navy px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-paper"
           >
-            Am înțeles, continui înscrierea
+            Am înțeles
           </button>
         </div>
       </dialog>
