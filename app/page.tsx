@@ -56,6 +56,12 @@ export default function Home() {
               >
                 Înscrie un elev
               </Link>
+              <a
+                href="https://app.cexia.ro"
+                className="border border-paper/30 px-6 py-3 text-sm font-medium text-paper transition-colors hover:border-paper hover:bg-paper/5"
+              >
+                Intră în aplicație
+              </a>
               <Link
                 href="/programa"
                 className="border border-paper/30 px-6 py-3 text-sm font-medium text-paper transition-colors hover:border-paper hover:bg-paper/5"

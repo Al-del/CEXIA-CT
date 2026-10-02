@@ -29,6 +29,7 @@ export function SiteFooter() {
             <li><Link href="/" className="hover:text-gold-soft">Acasă</Link></li>
             <li><Link href="/programa" className="hover:text-gold-soft">Programă</Link></li>
             <li><Link href="/inscriere" className="hover:text-gold-soft">Înscriere</Link></li>
+            <li><a href="https://app.cexia.ro" className="hover:text-gold-soft">Aplicație</a></li>
           </ul>
         </div>
 

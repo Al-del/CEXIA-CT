@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+const APP_HREF = "https://app.cexia.ro";
+
 const NAV_LINKS = [
   { href: "/", label: "Acasă" },
   { href: "/programa", label: "Programă" },
@@ -50,6 +52,12 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <a
+            href={APP_HREF}
+            className="border border-navy px-4 py-2 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-paper"
+          >
+            Aplicație
+          </a>
           <Link
             href="/inscriere"
             className="border border-navy bg-navy px-4 py-2 text-sm font-medium text-paper transition-colors hover:bg-navy-soft"
@@ -81,6 +89,13 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <a
+            href={APP_HREF}
+            onClick={() => setOpen(false)}
+            className="mt-2 border border-navy px-4 py-2 text-center text-sm font-medium text-navy"
+          >
+            Aplicație
+          </a>
           <Link
             href="/inscriere"
             onClick={() => setOpen(false)}
